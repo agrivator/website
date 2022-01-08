@@ -2,16 +2,21 @@
 
 @tailwind base;
 @tailwind components;
+
 @tailwind utilities;
 
 @layer base {
   html,
   body {
-    @apply font-poppins h-full overflow-auto font-light;
+    @apply font-poppins h-full font-light;
   }
 
   h1 {
     @apply font-semibold text-6xl;
+  }
+
+  h2 {
+    @apply font-semibold text-5xl;
   }
 
   h6 {

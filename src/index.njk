@@ -3,7 +3,7 @@ title: Agrivator
 layout: layouts/base.njk
 ---
 
-<section class="p-5 pt-0 h-full">
+<section class="p-5 pt-0 h-full max-h-[720px]">
     <div class="flex justify-between bg-secondary rounded-2xl px-6 h-full">
         <div class="flex flex-col flex-1 justify-center px-8">
             <h1 class="text-primary">
@@ -29,5 +29,28 @@ layout: layouts/base.njk
         <div class="flex flex-1 justify-center items-center">
             <img src="static/img/home-farmer.svg" alt="farmer" class="w-[32rem] h-[32rem]">
         </div>
+    </div>
+</section>
+
+<section class="px-16 py-9">
+    <h2 class="text-primary text-center">
+        Our Vision
+    </h2>
+    <div class="flex justify-between py-12 min-h-[720px]">
+        {% for item in vision %}
+        <div class="flex flex-col items-center max-w-sm {{ 'self-end' if loop.index0 % 2 }}">
+            <div class="h-48 w-48">
+                <img src="{{item.image}}" alt="drone" class="h-full w-full">
+            </div>
+            <div class="text-green-800 text-lg mt-2">
+                {{item.title}}
+            </div>
+            <div>
+                <p class="my-3 text-zinc-500 text-center">
+                    {{item.content}}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </section>
