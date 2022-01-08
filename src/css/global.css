@@ -1,3 +1,5 @@
+@import url(/css/fonts/poppins-font.css);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

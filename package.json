@@ -7,8 +7,8 @@
     "build": "yarn run tw:build && eleventy",
     "dev": "eleventy --serve",
     "start": "concurrently \"yarn tw:dev\" \"yarn dev\"",
-    "tw:dev": "npx tailwindcss -i src/css/global.css -o dist/global.css --watch",
-    "tw:build": "npx tailwindcss -i src/css/global.css -o dist/global.css --minify"
+    "tw:dev": "npx tailwindcss -i src/css/global.css -o dist/css/global.css --watch",
+    "tw:build": "npx tailwindcss -i src/css/global.css -o dist/css/global.css --minify"
   },
   "keywords": [],
   "author": {
