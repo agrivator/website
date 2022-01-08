@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/css/global.css" />
     <title>{{ title }}</title>
 </head>
 
-<body>
+<body class="flex flex-col">
     <header>
-        <h1>{{ title }}</h1>
+         {% include "partials/nav.njk" %}
     </header>
-    <main>
+    <main class="flex-grow">
         {{ content | safe }}
     </main>
+     {% include "partials/footer.njk" %}
 </body>
 
 </html>
