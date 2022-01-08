@@ -1,6 +1,33 @@
 ---
-title: Homepage
+title: Agrivator
 layout: layouts/base.njk
 ---
 
-<div class="max-w-sm p-3 m-4 rounded-lg shadow-lg">Testing tailwind</div>
+<section class="p-5 pt-0 h-full">
+    <div class="flex justify-between bg-secondary rounded-2xl px-6 h-full">
+        <div class="flex flex-col flex-1 justify-center px-8">
+            <h1 class="text-primary">
+                Modernizing <br /> <span class="text-green-800">agriculture</span>
+            </h1>
+            <p class="my-6 text-zinc-500">
+                We aim to bring a change in the field of agriculture by
+                efficient combination of technologies like artificial
+                intelligence with IOT and modern farming techniques.
+            </p>
+            <div class="flex items-center">
+                <div class="mr-4">
+                    <button
+                        class="flex items-center justify-center rounded-full bg-primary w-14 h-14 shadow-lg hover:opacity-75">
+                        <img src="static/img/triangle-right.svg" alt="play" />
+                    </button>
+                </div>
+                <div class="text-lg text-primary">
+                    About us
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-1 justify-center items-center">
+            <img src="static/img/home-farmer.svg" alt="farmer" class="w-[32rem] h-[32rem]">
+        </div>
+    </div>
+</section>

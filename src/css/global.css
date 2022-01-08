@@ -10,6 +10,10 @@
     @apply font-poppins h-full overflow-auto font-light;
   }
 
+  h1 {
+    @apply font-semibold text-6xl;
+  }
+
   h6 {
     @apply font-semibold text-3xl leading-10;
   }
