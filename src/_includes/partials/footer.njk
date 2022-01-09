@@ -1,44 +1,46 @@
 <footer>
-    <div class="flex flex-col p-10 bg-primary">
-        <div class="flex flex-col items-center text-center text-white my-4">
-            <h6 class="mb-2">
-                Let's get in touch
-            </h6>
-            <p class="text-2xl">
-                We will get back to you within 24 hours
-            </p>
-            <button
-                class="mt-8 bg-secondary px-4 py-3.5 text-primary rounded-md text-lg font-medium shadow-lg hover:opacity-75">
-                <div class="flex items-center">
-                    <div>
-                        SEND A MAIL
+    <div class="p-10 bg-primary">
+        <div class="container mx-auto flex flex-col">
+            <div class="flex flex-col items-center text-center text-white my-4">
+                <h6 class="mb-2">
+                    Let's get in touch
+                </h6>
+                <p class="text-2xl">
+                    We will get back to you within 24 hours
+                </p>
+                <button
+                    class="mt-8 bg-secondary px-4 py-3.5 text-primary rounded-md text-lg font-medium shadow-lg hover:opacity-75">
+                    <div class="flex items-center">
+                        <div>
+                            SEND A MAIL
+                        </div>
+                        <div class="ml-2">
+                            <img src="/static/img/mail-logo.svg" class="w-5 h-5" alt="mail" />
+                        </div>
                     </div>
-                    <div class="ml-2">
-                        <img src="/static/img/mail-logo.svg" class="w-5 h-5" alt="mail" />
-                    </div>
+                </button>
+            </div>
+            <hr class="mb-8 mt-16 text-white" />
+            <div class="flex justify-between items-center my-4">
+                <div class="flex flex-col">
+                    <div class="text-xl font-semibold text-white mb-1">Agrivator</div>
+                    <div class="text-lg text-white">Kollam, Kerala</div>
                 </div>
-            </button>
-        </div>
-        <hr class="mb-8 mt-16 text-white" />
-        <div class="flex justify-between items-center my-4">
-            <div class="flex flex-col">
-                <div class="text-xl font-semibold text-white mb-1">Agrivator</div>
-                <div class="text-lg text-white">Kollam, Kerala</div>
-            </div>
-            <div class="flex flex-col">
-                <div class="text-xl font-semibold text-white mb-1">Contact us</div>
-                <div class="text-lg text-white">agrivator@gmail.com</div>
-            </div>
-            <div class="flex flex-col">
-                <div class="text-xl font-semibold text-white mb-1">Follow us</div>
-                <div class="flex">
-                    {% for social in socialContacts %}
-                    <div class="mr-4">
-                        <a href="{{social.link}}" target="_blank" rel="noopener noreferrer">
-                            <img src="{{social.logo}}" alt="{{social.name}}" class="w-8 h-8" />
-                        </a>
+                <div class="flex flex-col">
+                    <div class="text-xl font-semibold text-white mb-1">Contact us</div>
+                    <div class="text-lg text-white">agrivator@gmail.com</div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="text-xl font-semibold text-white mb-1">Follow us</div>
+                    <div class="flex">
+                        {% for social in socialContacts %}
+                        <div class="mr-4 hover:opacity-75">
+                            <a href="{{social.link}}" target="_blank" rel="noopener noreferrer">
+                                <img src="{{social.logo}}" alt="{{social.name}}" class="w-8 h-8" />
+                            </a>
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@ title: Agrivator
 layout: layouts/base.njk
 ---
 
-<section class="p-5 pt-0 h-full max-h-[720px]">
+<section class="container mx-auto p-5 pt-0 h-full max-h-[720px]">
     <div class="flex justify-between bg-secondary rounded-2xl px-6 h-full">
         <div class="flex flex-col flex-1 justify-center px-8">
             <h1 class="text-primary">
@@ -32,7 +32,7 @@ layout: layouts/base.njk
     </div>
 </section>
 
-<section class="px-16 py-9">
+<section class="container mx-auto px-16 py-9">
     <h2 class="text-primary text-center">
         Our Vision
     </h2>
@@ -54,3 +54,57 @@ layout: layouts/base.njk
         {% endfor %}
     </div>
 </section>
+<section class="container mx-auto px-12 py-9">
+    <h2 class="text-primary text-center">
+        Our Products
+    </h2>
+    <div class="flex justify-between py-12">
+        <div class="swiper h-[440px]">
+            <div class="swiper-wrapper pt-4 px-4">
+                {% for item in ourProducts %}
+                <div class="swiper-slide">
+                    <div
+                        class="flex flex-col items-center px-8 py-4 w-[420px] h-[360px] shadow-3xl rounded-xl text-center text-primary hover:bg-primary hover:text-white transition-all">
+                        <div class="rounded-full shadow-md bg-white h-32 w-32 flex justify-center items-center">
+                            <img src="{{item.image}}" alt="{{item.title}}">
+                        </div>
+                        <div class="my-4 font-semibold text-xl">
+                            {{item.title}}
+                        </div>
+                        <div>
+                            {{item.content}}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+    </div>
+</section>
+
+<section class="container mx-auto px-16 py-9">
+    <h2 class="text-primary text-center">
+        What we offer
+    </h2>
+    <div class="flex justify-between py-12 min-h-[720px]">
+        {% for item in whatWeOffer %}
+        <div
+            class="flex flex-col items-center justify-center max-w-sm rounded-full bg-secondary w-80 h-80 p-8 hover:bg-primary hover:text-white transition-all {{ 'self-end' if loop.index % 2 }}">
+            <div class="mb-4">
+                <img src="{{item.icon}}" alt="agrivator-offer" class="w-20 h-20 rounded-full">
+            </div>
+            <div class="text-lg text-center whitespace-pre-line">
+                {{item.title}}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% set js %} {% include "js/home.js" %} {% endset %}
+<!-- feed it through our jsmin filter to minify -->
+<script>
+    {{ js | jsmin | safe }}
+</script>
