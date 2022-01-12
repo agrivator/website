@@ -103,8 +103,45 @@ layout: layouts/base.njk
     </div>
 </section>
 
+<section class="container mx-auto px-16 py-9 text-center">
+    <h2 class="text-primary mb-2">
+        Testimonials
+    </h2>
+    <p>
+        See what people have to say about us
+    </p>
+    <div class="flex justify-between py-12">
+        <div class="swiper swiper-coverflow h-[500px]">
+            <div class="swiper-wrapper pt-4 px-4">
+                {% for testimonial in testimonials %}
+                <div class="swiper-slide">
+                    <div
+                        class="flex flex-col items-center p-12 w-[420px] h-[420px] shadow-3xl rounded-xl text-center text-lg text-primary bg-white hover:bg-primary hover:text-white transition-all">
+                        <div class="mb-8 flex-grow flex items-center">
+                            <span>"{{testimonial.content}}"</span>
+                        </div>
+                        <div class="rounded-full h-16 w-16 mb-4">
+                            <img src="{{testimonial.image}}" alt="reviewer" class="rounded-full h-16 w-16">
+                        </div>
+                        <div class="font-semibold capitalize">
+                            {{testimonial.name}}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class=" swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+
 {% set js %} {% include "js/home.js" %} {% endset %}
 <!-- feed it through our jsmin filter to minify -->
 <script>
     {{ js | jsmin | safe }}
 </script>
+
+{% set css %} {% include "css/home.css" %} {% endset %}
+<style>
+  {{ css | cssmin | safe }}
+</style>

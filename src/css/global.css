@@ -3,6 +3,32 @@
 @tailwind base;
 @tailwind components;
 
+.swiper-slide {
+  width: unset !important;
+}
+
+.swiper-scrollbar {
+  width: 320px !important;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.swiper-scrollbar > div {
+  background: theme('colors.primary') !important;
+}
+
+.swiper-wrapper .swiper-slide:last-child {
+  margin-right: 2rem;
+}
+
+.swiper-coverflow .swiper-slide-active > div {
+  color: white !important;
+  background: theme('colors.primary') !important;
+}
+
 @tailwind utilities;
 
 @layer base {
@@ -21,26 +47,5 @@
 
   h6 {
     @apply font-semibold text-3xl leading-10;
-  }
-
-  .swiper-slide {
-    width: unset !important;
-  }
-
-  .swiper-scrollbar {
-    width: 320px !important;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
-  }
-
-  .swiper-scrollbar > div {
-    background: theme('colors.primary') !important;
-  }
-
-  .swiper-wrapper .swiper-slide:last-child {
-    margin-right: 2rem;
   }
 }
