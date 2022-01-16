@@ -1,0 +1,19 @@
+<a class="{{blogCardGallery.gridPos[params.index%5]}} gap-2 p-2 border border-gray-300 transition-all hover:shadow-lg" 
+href="{{params.link}}">
+    <div class="flex-1 bg-gray-400 bg-cover bg-center bg-no-repeat" style="background-image:url({{params.image}});">
+    </div>
+    <div class="flex-1 flex-shrink-0 flex flex-col p-4 gap-2">
+        <div class="text-xl font-semibold">
+            {{params.title}}
+        </div>
+        <div class="flex-grow font-light text-gray-600">
+            {{params.description}}
+        </div>
+        <div class="text-lg">
+            - {{params.author}}
+        </div>
+        <div class="text-sm text-primary">
+            {{params.date | formatDate}}
+        </div>
+    </div>
+</a>

@@ -22,19 +22,19 @@
             </div>
             <hr class="mb-8 mt-16 text-white" />
             <div class="flex justify-between items-center my-4">
-                <div class="flex flex-col">
-                    <div class="text-xl font-semibold text-white mb-1">Agrivator</div>
+                <div class="flex flex-col gap-1">
+                    <div class="text-xl font-semibold text-white">Agrivator</div>
                     <div class="text-lg text-white">Kollam, Kerala</div>
                 </div>
-                <div class="flex flex-col">
-                    <div class="text-xl font-semibold text-white mb-1">Contact us</div>
+                <div class="flex flex-col gap-1">
+                    <div class="text-xl font-semibold text-white">Contact us</div>
                     <div class="text-lg text-white">agrivator@gmail.com</div>
                 </div>
-                <div class="flex flex-col">
-                    <div class="text-xl font-semibold text-white mb-1">Follow us</div>
-                    <div class="flex">
+                <div class="flex flex-col gap-1">
+                    <div class="text-xl font-semibold text-white">Follow us</div>
+                    <div class="flex gap-4">
                         {% for social in socialContacts %}
-                        <div class="mr-4 hover:opacity-75">
+                        <div class="hover:opacity-75">
                             <a href="{{social.link}}" target="_blank" rel="noopener noreferrer">
                                 <img src="{{social.logo}}" alt="{{social.name}}" class="w-8 h-8" />
                             </a>

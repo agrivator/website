@@ -1,0 +1,29 @@
+---
+pagination:
+  data: collections.paginatedTagBlogs
+  size: 1
+  alias: tag
+layout: layouts/base.njk
+permalink: /blogs/tags/{{ tag.tagName }}/{% if tag.pageNumber %}{{ tag.pageNumber + 1 }}/{% endif %}
+---
+
+{% set blogList = tag.pageData %}
+{% include "partials/blogList.njk" %}
+
+<section class="container mx-auto flex items-center gap-2 px-16 py-12 text-lg">
+  {% for paginatedTag in collections.paginatedTagBlogs %}
+    {% if paginatedTag.tagName == tag.tagName %}
+      {% if paginatedTag.pageNumber %}
+        {% set href = ["/blogs/tags/",paginatedTag.tagName,"/", paginatedTag.pageNumber + 1,"/"] | join %}
+      {% else %}
+        {% set href = ["/blogs/tags/",paginatedTag.tagName,"/"] | join  %}
+      {% endif %}
+
+      <a href="{{href}}"
+      class="h-12 w-12 border text-center flex justify-center items-center {{ 'text-white bg-primary' if href==page.url }}">
+        <p>{{paginatedTag.pageNumber + 1}}</p>
+     </a>
+    {{href | log}}
+    {% endif %}
+  {% endfor %}
+</section>

@@ -1,0 +1,32 @@
+{%- from "components/blogCard/macro.njk" import blogCard with context -%}
+<section class="container mx-auto px-16 py-8 min-h-[75%]">
+  <div class="flex gap-4 mb-8">
+       <a href="/blogs">
+        <div class="px-4 py-2 border border-primary text-primary w-fit rounded-3xl capitalize {{ 'text-white bg-primary' if '/tags' not in page.url}}">
+          All
+        </div>
+      </a>
+      {% for tag in collections.tagList %}
+        {% set href = ["/blogs/tags/",tag] | join %}
+       <a href="{{href}}">
+        <div class="px-4 py-2 border border-primary text-primary w-fit rounded-3xl capitalize {{ 'text-white bg-primary' if href in page.url}}">
+          {{tag}}
+        </div>
+      </a>
+    {% endfor %}
+    
+  </div>
+  <div class="grid grid-cols-2 grid-flow-row auto-rows-[minmax(160px,1fr)] gap-4" >
+    {% for blog in blogList %} 
+      {{ blogCard({ 
+        index:loop.index0, 
+        image: blog.data.cover, 
+        title: blog.data.title,
+        description: blog.data.description,
+        date: blog.data.date,
+        link: blog.url,
+        author: blog.data.author.name
+        }) }} 
+    {% endfor %}
+  </div>
+</section>

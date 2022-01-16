@@ -10,12 +10,9 @@ const testimonialSwiper = new Swiper('.swiper-coverflow', {
     modifier: 1,
     slideShadows: false,
   },
-  scrollbar: {
-    el: '.swiper-scrollbar',
-    dragSize: 120,
-  },
   pagination: {
     el: '.swiper-pagination',
+    clickable: true,
   },
   breakpoints: {
     // when window width is >= 320px
@@ -30,6 +27,7 @@ const swiper = new Swiper('.swiper', {
   scrollbar: {
     el: '.swiper-scrollbar',
     dragSize: 120,
+    draggable: true,
   },
   slidesPerView: 'auto',
   spaceBetween: 50,
