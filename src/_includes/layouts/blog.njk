@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/github-markdown.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <main class="h-full overflow-x-hidden">
+        <header>
+            {% include "partials/nav.njk" %}
+        </header>
+        <section class="container flex flex-col gap-4 md:px-28 mt-4 md:mt-0">
+            <div>
+                <h1 class="text-3xl md:text-4xl">
+                    {{ title }}
+                </h1>
+            </div>
+            <div class="flex flex-wrap gap-4 items-center">
+                {% for tag in tags %}
+                    {% set href = ["/blogs/tags/",tag] | join %}
+                    <a href="{{href}}">
+                        <div class="px-2 py-1 text-xs border border-primary text-primary w-fit rounded-3xl capitalize {{ 'text-white bg-primary' if href in page.url}}">
+                        {{tag}}
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="flex gap-2 items-center">
+                <div>
+                    <img src="{{author.avatar}}" alt="logo" class="h-6 w-6 rounded-full"/>
+                </div>
+                <div class="text-sm text-primary">
+                    {{author.name}}
+                </div>
+                <div class="text-sm text-primary ml-4">
+                    {{date | formatDate}}
+                </div>
+                <div class="flex-grow"> </div>
+                <div>
+                    <button class="px-4 py-2 shadow hover:shadow-lg flex items-center gap-2" onclick="copyUrl()">
+                        Share
+                        <img src="/static/img/share.svg" alt="share" class="mt-0.5"/>
+                    </button>
+                </div>
+            </div>
+            <div class="text-gray-500 my-2">
+                {{description}}
+            </div>
+            <div class="h-80">
+                <img src="{{cover}}" alt="cover image" class="h-full w-full object-cover object-center"/>
+            </div>
+        </section>
+        <section class="container  md:px-16">
+            <article class="markdown-body">
+                {{ content | safe }}
+            </article>
+        </section>
+        <section class="container my-12">
+            <div class="flex justify-between items-center">
+                {%- if collections.blogs %}
+                    {%- set nextPost = collections.blogs | getNextCollectionItem(page) %}
+                    {%- set previousPost = collections.blogs | getPreviousCollectionItem(page) %}
+                    {%- if nextPost or previousPost %}
+                        <div>
+                            {%- if previousPost %}
+                                <a href="{{ previousPost.url | url }}" class="text-primary">
+                                    << {{ previousPost.data.title }}
+                                </a>
+                            {% endif %}
+                        </div>
+                       <div>
+                            {%- if nextPost %}
+                                <a href="{{ nextPost.url | url }}" class="text-primary">
+                                    {{ nextPost.data.title }} >>
+                                </a>
+                            {% endif %}
+                       </div>
+                    {%- endif %}
+                {%- endif %}
+            </div>
+            <hr class="my-8">
+        </section>
+
+        <section class="container my-12">
+            <h6 class="text-primary">More from this author</h2>
+            <div  class="flex flex-col gap-8 my-4">
+              {% set authorPostCount = 1 %}
+                {%- for blog in collections.blogs | reverse -%}
+                        {%- if blog.data.author.name == author.name and blog.url != page.url and authorPostCount < 4 %}
+                             <a class="flex flex-col gap-2 text-primary" 
+                                href="{{blog.url}}">
+                                    <div class="font-medium text-xl">
+                                        {{blog.data.title}}
+                                    </div>
+                                    <div class="text-xs">{{blog.data.date | formatDate }}</div>
+                                </a>
+                            {% set authorPostCount = authorPostCount + 1 %}
+                        {% endif %}
+                {%- endfor -%}
+            </div>
+            <hr class="my-8">
+        </section>
+
+        {%- from "components/blogCard/macro.njk" import blogCard with context -%}
+
+        <section class="container my-12">
+            <h6 class="text-primary">Recent Posts</h2>
+            <div  class="flex flex-col lg:flex-row gap-4 my-4">
+                {%- for blog in collections.blogs | reverse -%}
+                        {%- if loop.index < 4 %}
+                             <a class="flex flex-col gap-2 p-2 border border-gray-300 transition-all hover:shadow-lg h-80" 
+                                href="{{blog.url}}">
+                                    <div class="flex-1 bg-gray-400 bg-cover bg-center bg-no-repeat" style="background-image:url({{blog.data.cover}});">
+                                    </div>
+                                    <div class="flex-1 flex-shrink-0 flex flex-col p-2 gap-2">
+                                        <div class="text-xl font-semibold">
+                                            {{blog.data.title}}
+                                        </div>
+                                        <div class="flex-grow font-light text-gray-600 text-sm">
+                                            {{blog.data.description}}
+                                        </div>
+                                      <div class="flex justify-between items-center text-sm mt-4">
+                                        <div>
+                                            - {{blog.data.author.name}}
+                                        </div>
+                                        <div class="text-primary">
+                                            {{blog.data.date | formatDate}}
+                                        </div>
+                                      </div>
+                                    </div>
+                                </a>
+                        {% endif %}
+                {%- endfor -%}
+            </div>
+            <hr class="my-8">
+        </section>
+
+        {% include "partials/footer.njk" %}
+        {% set js %} {% include "js/post.js" %} {% endset %}
+        <!-- feed it through our jsmin filter to minify -->
+        <script>
+            {{ js | jsmin | safe }}
+        </script>
+    </main>
+</body>
+
+</html>

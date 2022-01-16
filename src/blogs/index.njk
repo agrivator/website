@@ -10,7 +10,7 @@ pagination:
 {% set blogList = blogs %}
 {% include "partials/blogList.njk" %}
 
-<section class="container mx-auto flex items-center gap-2 px-16 py-12 text-lg">
+<section class="2xl:container flex items-center gap-2 px-4 lg:px-16 py-12 text-lg">
   {% for href in pagination.hrefs %}
     <a href="{{href}}" class="h-12 w-12 border text-center flex justify-center items-center {{ 'text-white bg-primary' if href==page.url }}">
       <p>{{loop.index}}</p>

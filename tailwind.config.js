@@ -3,6 +3,10 @@ module.exports = {
   content: ['./dist/**/*.html', './src/**/*.njk'],
   theme: {
     extend: {
+      container: {
+        padding: '1rem',
+        center: true,
+      },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
       },

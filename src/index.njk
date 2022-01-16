@@ -3,10 +3,10 @@ title: Agrivator
 layout: layouts/base.njk
 ---
 
-<section class="container mx-auto p-5 pt-0 h-full max-h-[720px]">
-    <div class="flex justify-between bg-secondary rounded-2xl px-6 h-full">
-        <div class="flex flex-col flex-1 justify-center px-8">
-            <h1 class="text-primary">
+<section class="2xl:container px-4 max-h-[720px] lg:px-10 lg:h-full">
+    <div class="flex flex-col-reverse justify-between bg-secondary rounded-2xl p-6 gap-8 h-full md:flex-row md:items-center ">
+        <div class="flex flex-col flex-1 justify-start lg:justify-center px-2 md:px-8">
+            <h1 class="text-primary text-4xl lg:text-6xl">
                 Modernizing <br /> <span class="text-green-800">agriculture</span>
             </h1>
             <p class="my-6 text-zinc-500">
@@ -14,7 +14,7 @@ layout: layouts/base.njk
                 efficient combination of technologies like artificial
                 intelligence with IOT and modern farming techniques.
             </p>
-            <div class="flex items-center">
+            <div class="hidden items-center">
                 <div class="mr-4">
                     <button
                         class="flex items-center justify-center rounded-full bg-primary w-14 h-14 shadow-lg hover:opacity-75">
@@ -26,27 +26,27 @@ layout: layouts/base.njk
                 </div>
             </div>
         </div>
-        <div class="flex flex-1 justify-center items-center">
-            <img src="static/img/home-farmer.svg" alt="farmer" class="w-[32rem] h-[32rem]">
+        <div class="flex flex-1 justify-end items-center lg:justify-center">
+            <img src="static/img/home-farmer.svg" alt="farmer" class="w-60 h-60 lg:w-[32rem] lg:h-[32rem]">
         </div>
     </div>
 </section>
 
-<section class="container mx-auto px-16 py-9">
+<section class="2xl:container px-16 py-9">
     <h2 class="text-primary text-center">
         Our Vision
     </h2>
-    <div class="flex justify-between py-12 min-h-[720px]">
+    <div class="flex flex-col lg:flex-row justify-between py-8 min-h-[720px] gap-8">
         {% for item in vision %}
-        <div class="flex flex-col items-center max-w-sm {{ 'self-end' if loop.index0 % 2 }}">
+        <div class="flex flex-1 flex-shrink-0 flex-col items-center text-center max-w-sm {{ 'self-end' if loop.index0 % 2 }}">
             <div class="h-48 w-48">
                 <img src="{{item.image}}" alt="drone" class="h-full w-full">
             </div>
-            <div class="text-green-800 text-lg mt-2">
+            <div class="text-green-800 text-lg mt-2 whitespace-nowrap">
                 {{item.title}}
             </div>
             <div>
-                <p class="my-3 text-zinc-500 text-center">
+                <p class="my-3 text-zinc-500">
                     {{item.content}}
                 </p>
             </div>
@@ -54,7 +54,7 @@ layout: layouts/base.njk
         {% endfor %}
     </div>
 </section>
-<section class="container mx-auto px-12 py-9">
+<section class="2xl:container mx-auto px-4 md:px-12 py-9">
     <h2 class="text-primary text-center">
         Our Products
     </h2>
@@ -64,7 +64,7 @@ layout: layouts/base.njk
                 {% for item in ourProducts %}
                 <div class="swiper-slide">
                     <div
-                        class="flex flex-col items-center px-8 py-4 w-[420px] h-[360px] shadow-3xl rounded-xl text-center text-primary hover:bg-primary hover:text-white transition-all">
+                        class="flex flex-col items-center px-8 py-4 w-80 h-96 md:w-[420px] md:h-[360px] shadow-3xl rounded-xl text-center text-primary hover:bg-primary hover:text-white transition-all">
                         <div class="rounded-full shadow-md bg-white h-32 w-32 flex justify-center items-center">
                             <img src="{{item.image}}" alt="{{item.title}}">
                         </div>
@@ -84,14 +84,14 @@ layout: layouts/base.njk
     </div>
 </section>
 
-<section class="container mx-auto px-16 py-9">
+<section class="2xl:container px-4 md:px-12 py-9">
     <h2 class="text-primary text-center">
         What we offer
     </h2>
-    <div class="flex justify-between py-12 min-h-[720px]">
+    <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between py-12 min-h-[720px] gap-8">
         {% for item in whatWeOffer %}
         <div
-            class="flex flex-col items-center justify-center max-w-sm rounded-full bg-secondary w-80 h-80 p-8 hover:bg-primary hover:text-white transition-all {{ 'self-end' if loop.index % 2 }}">
+            class="flex flex-col flex-shrink-0 items-center justify-center max-w-sm rounded-full bg-secondary w-80 h-80 p-8 hover:bg-primary hover:text-white transition-all {{ 'lg:self-end' if loop.index % 2 }}">
             <div class="mb-4">
                 <img src="{{item.icon}}" alt="agrivator-offer" class="w-20 h-20 rounded-full">
             </div>
@@ -103,7 +103,7 @@ layout: layouts/base.njk
     </div>
 </section>
 
-<section class="container mx-auto px-16 py-9 text-center">
+<section class="2xl:container px-4 md:px-12 text-center">
     <h2 class="text-primary mb-2">
         Testimonials
     </h2>
@@ -116,7 +116,7 @@ layout: layouts/base.njk
                 {% for testimonial in testimonials %}
                 <div class="swiper-slide">
                     <div
-                        class="flex flex-col items-center p-12 w-[420px] h-[420px] shadow-3xl rounded-xl text-center text-lg text-primary bg-white hover:bg-primary hover:text-white transition-all">
+                        class="flex flex-col items-center p-12 w-72 lg:w-[420px] h-[420px] shadow-3xl rounded-xl text-center text-lg text-primary bg-white hover:bg-primary hover:text-white transition-all">
                         <div class="mb-8 flex-grow flex items-center">
                             <span>"{{testimonial.content}}"</span>
                         </div>
@@ -140,8 +140,3 @@ layout: layouts/base.njk
 <script>
     {{ js | jsmin | safe }}
 </script>
-
-{% set css %} {% include "css/home.css" %} {% endset %}
-<style>
-  {{ css | cssmin | safe }}
-</style>

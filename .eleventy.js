@@ -2,14 +2,36 @@ const { minify } = require('terser');
 const CleanCSS = require('clean-css');
 const dayjs = require('dayjs');
 const lodashChunk = require('lodash/chunk');
+const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const markdownIt = require('markdown-it');
+const markdownItAnchor = require('markdown-it-anchor');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/static');
   eleventyConfig.addPassthroughCopy('./src/css/fonts');
+  eleventyConfig.addPassthroughCopy('./src/css/github-markdown.css');
 
   eleventyConfig.addCollection('blogs', function (collection) {
     return collection.getFilteredByGlob('./src/blogs/**/*.md');
   });
+
+  // 11ty plugins
+  eleventyConfig.addPlugin(pluginSyntaxHighlight);
+
+  let markdownLibrary = markdownIt({
+    html: true,
+    breaks: true,
+    linkify: true,
+  }).use(markdownItAnchor, {
+    permalink: markdownItAnchor.permalink.ariaHidden({
+      placement: 'after',
+      class: 'direct-link',
+      symbol: '#',
+      level: [1, 2, 3, 4],
+    }),
+    slugify: eleventyConfig.getFilter('slug'),
+  });
+  eleventyConfig.setLibrary('md', markdownLibrary);
 
   // js minification filter
   eleventyConfig.addNunjucksAsyncFilter(

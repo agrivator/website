@@ -5,6 +5,7 @@ date: 2019-01-01
 tags:
   - agriculture
   - agile
+cover: 'https://images.unsplash.com/photo-1642248285017-2b5141118f30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80'
 author:
   name: Sarath S
   email: sarath@agrivator.com
