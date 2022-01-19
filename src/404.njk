@@ -4,6 +4,23 @@ title: Oops! Not Found
 permalink: 404.html
 ---
 
-<section class=" container min-h-[60vh] w-full bg-secondary flex justify-center items-center">
-  <img src="/static/img/coming-soon.svg" alt="not found" />
+<section class="container min-h-[60vh] w-full flex gap-12 flex-col lg:flex-row justify-center items-center">
+ <div>
+   <img src="/static/img/not-found.svg" alt="not found" />
+ </div>
+ <div class="flex flex-col items-center gap-2">
+    <div class="text-primary">
+      <h1>OOPS!</h1>
+    </div>
+    <div>
+      <p>We couldn’t find any posts related to your search </p> 
+    </div>
+    <div class="mt-8">
+      <a href="/">
+        <button class="py-4 px-8 rounded-full text-sm text-white bg-primary shadow-md hover:opacity-50 transition-all">
+          Back to Main Page
+        </button>
+      </a>
+    </div>
+ </div>
 </section>
