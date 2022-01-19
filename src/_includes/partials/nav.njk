@@ -6,16 +6,16 @@
     </div>
     <div class="flex-grow"></div>
     <div class="hidden lg:flex gap-8">
-        <a href="/#products" class="uppercase font-medium text-lg text-primary">
+        <a href="/#products" class="uppercase font-medium text-lg text-primary underdash">
             products
         </a>
-        <a href="/#services" class="uppercase font-medium text-lg text-primary">
+        <a href="/#services" class="uppercase font-medium text-lg text-primary underdash">
             services
         </a>
-        <a class="uppercase font-medium text-lg text-primary" href="/blogs">
-                blogs
+        <a class="uppercase font-medium text-lg text-primary border-b-2 transition-all hover:border-primary {{ 'border-primary' if '/blogs' in page.url else 'border-transparent' }}" href="/blogs">
+            blogs
         </a>
-        <a href="/#contact" class="uppercase font-medium text-lg text-primary">
+        <a href="/#contact" class="uppercase font-medium text-lg text-primary underdash">
             contact us
         </a>
     </div>

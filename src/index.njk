@@ -10,9 +10,7 @@ layout: layouts/base.njk
                 Modernizing <br /> <span class="text-green-800">agriculture</span>
             </h1>
             <p class="my-6 text-zinc-500">
-                We aim to bring a change in the field of agriculture by
-                efficient combination of technologies like artificial
-                intelligence with IOT and modern farming techniques.
+                {{homePage.tagline}}
             </p>
             <div class="hidden items-center">
                 <div class="mr-4">
@@ -37,7 +35,7 @@ layout: layouts/base.njk
         Our Vision
     </h2>
     <div class="flex flex-col lg:flex-row justify-between py-8 min-h-[720px] gap-8">
-        {% for item in vision %}
+        {% for item in homePage.vision %}
         <div class="flex flex-1 flex-shrink-0 flex-col items-center text-center max-w-sm {{ 'self-end' if loop.index0 % 2 }}">
             <div class="h-48 w-48">
                 <img src="{{item.image}}" alt="drone" class="h-full w-full">
@@ -61,7 +59,7 @@ layout: layouts/base.njk
     <div class="flex justify-between py-12">
         <div class="swiper h-[440px]">
             <div class="swiper-wrapper pt-4 px-4">
-                {% for item in ourProducts %}
+                {% for item in homePage.products %}
                 <div class="swiper-slide">
                     <div
                         class="flex flex-col items-center px-8 py-4 w-80 h-96 md:w-[420px] md:h-[360px] shadow-3xl rounded-xl text-center text-primary hover:bg-primary hover:text-white transition-all">
@@ -89,7 +87,7 @@ layout: layouts/base.njk
         What we offer
     </h2>
     <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between py-12 min-h-[720px] gap-8">
-        {% for item in whatWeOffer %}
+        {% for item in homePage.whatWeOffer %}
         <div
             class="flex flex-col flex-shrink-0 items-center justify-center max-w-sm rounded-full bg-secondary w-80 h-80 p-8 hover:bg-primary hover:text-white transition-all {{ 'lg:self-end' if loop.index % 2 }}">
             <div class="mb-4">
@@ -113,7 +111,7 @@ layout: layouts/base.njk
     <div class="flex justify-between py-12">
         <div class="swiper swiper-coverflow h-[500px]">
             <div class="swiper-wrapper pt-4 px-4">
-                {% for testimonial in testimonials %}
+                {% for testimonial in homePage.testimonials %}
                 <div class="swiper-slide">
                     <div
                         class="flex flex-col items-center p-12 w-72 lg:w-[420px] h-[420px] shadow-3xl rounded-xl text-center text-lg text-primary bg-white hover:bg-primary hover:text-white transition-all">

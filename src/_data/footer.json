@@ -1,0 +1,25 @@
+{
+  "socialLinks": [
+    {
+      "name": "insta",
+      "link": "https://www.instagram.com/agrivator.co/",
+      "logo": "/static/img/insta-logo.svg"
+    },
+    {
+      "name": "fb",
+      "link": "https://www.facebook.com/agrivatortech",
+      "logo": "/static/img/fb-logo.svg"
+    },
+    {
+      "name": "linkedin",
+      "link": "https://www.linkedin.com/company/agrivator/",
+      "logo": "/static/img/linkedin-logo.svg"
+    }
+  ],
+  "contact": {
+    "email": "agrivator@gmail.com",
+    "name": "agrivator",
+    "city": "kollam",
+    "state": "kerala"
+  }
+}

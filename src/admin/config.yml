@@ -1,0 +1,123 @@
+backend:
+  name: git-gateway
+  branch: master
+publish_mode: editorial_workflow
+media_folder: "src/static/img/uploads"
+public_folder: "static/img/uploads"
+local_backend: true
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "src/blogs" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {
+          label: "Cover Image",
+          name: "cover",
+          widget: "image",
+          allow_multiple: false,
+        }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - label: "Author"
+        name: "author"
+        widget: "object"
+        summary: "{{fields.name}}"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - {
+              label: "Avatar",
+              name: "avatar",
+              widget: "image",
+              default: "/static/img/avatar.jpg",
+              allow_multiple: false,
+            }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "website" # Used in routes, e.g., /admin/collections/blog
+    label: "Website Data" # Used in the UI
+    files:
+      - file: "src/_data/homePage.json"
+        label: "Home"
+        name: "home"
+        fields: # The fields for each document, usually in front matter
+          - label: "Tagline"
+            name: "tagline"
+            widget: "string"
+          - label: "Products"
+            name: "products"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "content", widget: "string" }
+              - {
+                  label: "Product Image",
+                  name: "image",
+                  widget: "image",
+                  allow_multiple: false,
+                }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "content", widget: "string" }
+              - {
+                  label: "Avatar Image",
+                  name: "image",
+                  widget: "image",
+                  default: "/static/img/avatar.jpg",
+                  allow_multiple: false,
+                }
+          - label: "Our Vision"
+            name: "vision"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "title", widget: "string" }
+              - { label: "Description", name: "content", widget: "string" }
+              - {
+                  label: "Avatar Image",
+                  name: "image",
+                  widget: "image",
+                  allow_multiple: false,
+                }
+          - label: "What we offer"
+            name: "whatWeOffer"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - {
+                  label: "Icon",
+                  name: "icon",
+                  widget: "image",
+                  allow_multiple: false,
+                }
+      - file: "src/_data/footer.json"
+        label: "Footer"
+        name: "footer"
+        fields: # The fields for each document, usually in front matter
+          - label: "Social Links"
+            name: "socialLinks"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+              - {
+                  label: "Icon",
+                  name: "logo",
+                  widget: "image",
+                  allow_multiple: false,
+                }
+          - label: "Contact us"
+            name: "contact"
+            widget: "object"
+            summary: "{{fields.email}}"
+            fields:
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "City", name: "city", widget: "string" }
+              - { label: "State", name: "state", widget: "string" }

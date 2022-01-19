@@ -1,0 +1,73 @@
+{
+  "tagline": "We aim to bring a change in the field of agriculture by efficient combination of technologies like artificial intelligence with IOT and modern farming techniques.",
+  "products": [
+    {
+      "image": "/static/img/product-bowl.svg",
+      "title": "Agriculture Products",
+      "content": "Agrivator provides fresh and safe to eat produce from 'farm to fork', sourced from clusters of farms under Agrivator across Kerala."
+    },
+    {
+      "image": "/static/img/product-plant.svg",
+      "title": "Airfarms",
+      "content": "Agrivator provides fresh and safe to eat produce from 'farm to fork', sourced from clusters of farms under Agrivator across Kerala."
+    },
+    {
+      "image": "/static/img/product-dart.svg",
+      "title": "Dart",
+      "content": "Agrivator provides fresh and safe to eat produce from 'farm to fork', sourced from clusters of farms under Agrivator across Kerala."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Bob the farmer",
+      "image": "/static/img/avatar.jpg",
+      "content": "Agrivator is literally one of the greatest things I’ve ever discovered. Thank you so much for making it so easy."
+    },
+    {
+      "name": "Bob the farmer",
+      "image": "/static/img/avatar.jpg",
+      "content": "Agrivator is literally one of the greatest things I’ve ever discovered. Thank you so much for making it so easy."
+    },
+    {
+      "name": "Bob the farmer",
+      "image": "/static/img/avatar.jpg",
+      "content": "Agrivator is literally one of the greatest things I’ve ever discovered. Thank you so much for making it so easy."
+    },
+    {
+      "name": "Bob the farmer",
+      "image": "/static/img/avatar.jpg",
+      "content": "Agrivator is literally one of the greatest things I’ve ever discovered. Thank you so much for making it so easy."
+    }
+  ],
+  "vision": [
+    {
+      "image": "/static/img/vision-drone.svg",
+      "title": "Infuse agriculture with technology",
+      "content": "To bring out a revolutionary change through product development which can ramp up crop growth and harvest with minimal resources and capital"
+    },
+    {
+      "image": "/static/img/vision-money-plant.svg",
+      "title": "Boost income of our farmers",
+      "content": "Make sure farmers get their deserved remuneration"
+    },
+    {
+      "image": "/static/img/vision-pot.svg",
+      "title": "Quality rich produce",
+      "content": "For the society,to get rid of pesticides and other life threatening chemicals that we get to tuck-in today"
+    }
+  ],
+  "whatWeOffer": [
+    {
+      "title": "Power Tools\nDevelopment",
+      "icon": "/static/img/agrivator-logo.png"
+    },
+    {
+      "title": "Farm Consulting & Automation",
+      "icon": "/static/img/agrivator-logo.png"
+    },
+    {
+      "title": "Aquaponics and Hydroponics Systems",
+      "icon": "/static/img/agrivator-logo.png"
+    }
+  ]
+}
