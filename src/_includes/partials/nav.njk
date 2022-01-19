@@ -12,9 +12,12 @@
         <a href="/#services" class="uppercase font-medium text-lg text-primary underdash">
             services
         </a>
-        <a class="uppercase font-medium text-lg text-primary border-b-2 transition-all hover:border-primary {{ 'border-primary' if '/blogs' in page.url else 'border-transparent' }}" href="/blogs">
-            blogs
-        </a>
+        {% if collections.blogs.length != 0 %}
+              <a class="uppercase font-medium text-lg text-primary border-b-2 transition-all hover:border-primary {{ 'border-primary' if '/blogs' in page.url else 'border-transparent' }}" href="/blogs">
+                blogs
+            </a>
+        {% endif %}
+      
         <a href="/#contact" class="uppercase font-medium text-lg text-primary underdash">
             contact us
         </a>
@@ -39,7 +42,9 @@
 	<ul class="text-primary uppercase text-center">
 		<li><a href="/#products" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white">Products</a></li>
 		<li><a href="/#services" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Services</a></li>
-		<li><a href="/blogs" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Blogs</a></li>
+		 {% if collections.blogs.length != 0 %}
+            <li><a href="/blogs" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Blogs</a></li>
+        {% endif %}
 		<li><a href="/#contact" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Contact Us</a></li>
     </ul>
 </div>
