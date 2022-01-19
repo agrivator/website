@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
-  branch: master
+  repo: agrivator/website
+  branch: main
 publish_mode: editorial_workflow
 media_folder: "src/static/img/uploads"
 public_folder: "static/img/uploads"
